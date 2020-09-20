@@ -1,0 +1,67 @@
+@import "../styles/base";
+
+.page {
+  padding-top: 165px;
+}
+
+.heading {
+
+  h1 {
+    @extend .mb-3;
+    @extend .pl-2;
+    @extend .pl-md-3;
+  }
+}
+
+.featuredImage {
+  @extend .mb-3;
+
+  width: 100%;
+}
+
+.content {
+  @extend .py-4;
+  @extend .px-3;
+
+  font-weight: 200;
+
+  p {
+    @include font-size($font-size-lg);
+    @extend .mb-4;
+
+    line-height: $line-height-lg;
+  }
+
+  figure {
+    @extend .figure;
+    @extend .pb-5;
+
+    figcaption {
+      @extend .pl-3;
+      margin-top: -3rem;
+    }
+  }
+}
+
+.videos {
+  @extend .row;
+}
+
+.videoColumn {
+  @extend .col-12;
+
+  h3, h4 {
+    @extend .pt-0;
+    @extend .pb-2;
+    @extend .px-3;
+    @extend .m-0;
+  }
+
+  h3 {
+    @include font-size($font-size-lg);
+  }
+
+  h4 {
+    @include font-size($font-size-sm);
+  }
+}

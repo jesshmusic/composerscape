@@ -1,0 +1,38 @@
+@import '../base';
+
+.footer {
+  @extend .bg-primary-dark;
+  @extend .border-top;
+
+  h4 {
+    @extend .mb-2;
+
+    small {
+      @extend .text-muted;
+      @extend .d-block;
+      font-size: $h6-font-size;
+    }
+  }
+}
+
+.container {
+  @extend .container;
+}
+
+.row {
+  @extend .row;
+}
+
+.col {
+  @extend .col-12;
+  @extend .col-md-6;
+  @extend .py-5;
+}
+
+.copyrightBar {
+  @extend .p-3;
+  @extend .text-muted;
+
+  background-color: $c-dark;
+  font-size: $font-size-sm;
+}

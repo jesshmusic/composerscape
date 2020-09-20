@@ -1,0 +1,40 @@
+@import "../styles/base";
+
+.postTease {
+  @extend .p-3;
+  @extend .border-bottom;
+
+  h2, h3 {
+    @extend .mb-1;
+  }
+
+  h3 {
+    @extend .h5;
+  }
+}
+
+.link {
+  align-items: center;
+  display: flex;
+}
+
+.imageContainer {
+  border-radius: 50%;
+  border: 10px $black double;
+  height: 200px;
+  line-height:200px;
+  overflow: hidden;
+  text-align: center;
+  width: 200px;
+
+  img {
+    height: 200px;
+    margin: -100%;
+    max-width: none;
+    width: auto;
+  }
+}
+
+.content {
+  @extend .ml-4;
+}

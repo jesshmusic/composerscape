@@ -1,0 +1,16 @@
+@import "../styles/base";
+
+.container {
+  @extend .px-0;
+  @extend .pb-4;
+  @extend .shadow-lg;
+
+  background-color: $white;
+  overflow: hidden;
+}
+
+.containerFluid {
+  @extend .container-fluid;
+
+  background-color: $secondary;
+}

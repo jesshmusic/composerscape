@@ -1,0 +1,29 @@
+@import "../base";
+
+.react-player {
+  &__preview {
+    padding-top: 56.25%;
+    position: relative;
+  }
+
+  &__shadow {
+    @extend .shadow-lg;
+    background-color: rgba($primary, .75) !important;
+    border-radius: 50% !important;
+    height: 200px !important;;
+    position: absolute;
+    top: 12%;
+    transition: background-color 350ms ease-in-out;
+    width: 200px !important;
+
+    &:hover {
+      background-color: $primary !important;
+    }
+  }
+
+  &__play-icon {
+    border-width: 32px 0 32px 52px !important;
+  }
+}
+
+

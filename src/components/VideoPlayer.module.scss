@@ -1,0 +1,18 @@
+@import "../styles/base";
+
+.videoPlayer {
+  @extend .border-bottom;
+  @extend .border-top;
+  @extend .mb-5;
+
+  iframe {
+    @include media-breakpoint-up(md) {
+      min-height: 600px;
+    }
+    min-height: 400px;
+  }
+}
+
+.videoPlayerWrapper {
+
+}
