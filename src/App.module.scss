@@ -5,41 +5,12 @@
 }
 
 .banner {
+  @include media-breakpoint-up(lg) {
+    max-height: 300px;
+  }
   display: block;
   max-height: 200px;
   overflow: hidden;
-}
-
-.hidden {
-  @extend .sr-only;
-}
-
-.top {
-  @extend .mb-0;
-  @extend .h1;
-  @extend .shadow;
-
-  background-color: $white;
-  border-bottom: 15px double $black;
-  //padding-bottom: 15px;
-  height: 165px;
-  min-height: 165px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-
-  a {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: $black;
-    display: block;
-    font-size: $h2-font-size;
-    min-height: 150px;
-    text-align: center;
-    width: 100%;
-  }
 }
 
 .marker {

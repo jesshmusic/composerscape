@@ -9,8 +9,8 @@ import styles from './App.module.scss';
 import HomePage from "./pages/Home";
 import Page from "./pages/Page";
 
-import SiteBanner from './assets/images/SiteBanner.jpg';
 import axios from 'axios';
+import Header from "./components/Header";
 
 class App extends React.Component {
 
@@ -41,11 +41,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className={styles.app}>
-          <div className={styles.top}>
-            <Link to={'/'} style={{backgroundImage: `url('${SiteBanner}')`}}>
-              <span className={styles.hidden}>Jess Hendricks ComposersCAPE</span>
-            </Link>
-          </div>
+          <Header />
           <Switch>
             <Route exact
                    path={`/`}

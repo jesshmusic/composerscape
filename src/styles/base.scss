@@ -12,9 +12,17 @@
 @import "bootstrap/images";
 @import "bootstrap/forms";
 @import "bootstrap/buttons";
-@import "bootstrap/input-group";
+@import "bootstrap/nav";
+@import "bootstrap/";
 
-a {
+a,
+.nav-link {
+  color: $black;
   transition: color 250ms ease-in-out;
 }
+//
+//.nav-link {
+//  @include font-size($font-size-base);
+//}
+
 

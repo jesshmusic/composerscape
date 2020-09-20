@@ -1,0 +1,38 @@
+@import '../styles/base';
+
+.header {
+  @extend .mb-0;
+  @extend .h1;
+  @extend .shadow;
+  @include media-breakpoint-up(xl) {
+    min-height: 300px;
+  }
+
+  background-color: $white;
+  border-bottom: 15px double $black;
+  height: 212px;
+  min-height: 165px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.banner {
+  @include media-breakpoint-up(xl) {
+    min-height: 235px;
+  }
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $black;
+  display: block;
+  font-size: $h2-font-size;
+  min-height: 150px;
+  text-align: center;
+  width: 100%;
+}
+
+.hidden {
+  @extend .sr-only;
+}

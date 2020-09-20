@@ -1,6 +1,10 @@
 @import '../styles/base';
 
 .home {
+  @include media-breakpoint-up(xl) {
+    padding-top: 300px;
+  }
+
   min-height: 100vh;
-  padding-top: 200px;
+  padding-top: 212px;
 }
