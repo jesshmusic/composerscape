@@ -6,10 +6,13 @@ import ContainerFluid from "../components/ContainerFluid";
 import Image from "react-bootstrap/Image";
 import ReactMarkdown from "react-markdown";
 import moment from "moment";
+import { Link } from "react-router-dom";
+import Pagination from "react-bootstrap/Pagination";
 
 class Page extends React.Component {
   render() {
-    const { post, posts, show } = this.props;
+    const { post, posts, show, nextPost, prevPost } = this.props;
+    console.log(posts);
     return(
       <ContainerFluid posts={ posts } show={show}>
         <div className={ styles.page } id={'pageTop'}>
@@ -22,6 +25,7 @@ class Page extends React.Component {
                        fluid />
               ) : null
             }
+            <PostPagination nextPost={nextPost} prevPost={prevPost} />
             <h1>
               { post.title } <small>{ post.subtitle }</small>
             </h1>
@@ -45,12 +49,37 @@ class Page extends React.Component {
               </div>
             ) : null
           }
+          <PostPagination nextPost={nextPost} prevPost={prevPost} />
         </div>
       </ContainerFluid>
     )
       ;
   }
 }
+
+const PostPagination = ({nextPost, prevPost}) =>
+  <div className={styles.pagination}>
+    <div className={styles.previous}>
+      {prevPost ? (
+        <Link to={`/posts/${prevPost.id}`}>
+          <i className="fas fa-hand-point-left text-secondary"/> Previous Post
+        </Link>
+      ) : null}
+    </div>
+    <div className={styles.home}>
+      <Link to={`/`}>
+        Home <i className="fas fa-hand-point-up text-secondary"/>
+      </Link>
+    </div>
+    <div className={styles.next}>
+      {nextPost ? (
+        <Link to={`/posts/${nextPost.id}`}>
+          Next Post <i className="fas fa-hand-point-right text-secondary"/>
+        </Link>
+      ) : null}
+    </div>
+  </div>;
+
 
 Page.propTypes = {
   post: PropTypes.object.isRequired,

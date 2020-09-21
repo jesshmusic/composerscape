@@ -11,6 +11,8 @@
   h3 {
     @extend .h5;
     @extend .text-secondary;
+
+    font-family: $font-family-sans-serif;
   }
 }
 

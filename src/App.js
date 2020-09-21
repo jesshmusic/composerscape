@@ -30,7 +30,6 @@ class App extends React.Component {
   componentDidMount = async () => {
     try {
       const response = await axios.get('https://composerscape-api.herokuapp.com/posts?_sort=created_at:desc');
-      console.log(response.data);
       this.setState({
         posts: response.data,
         loading: false
@@ -61,10 +60,16 @@ class App extends React.Component {
                    key={'0000'}>
               { ({ match }) => <HomePage posts={posts} loading={true} show={match !== null} /> }
             </Route>
-            {posts.map(post =>
+            {posts.map((post, index) =>
+
               <Route path={`/posts/${post.id}`}
                      key={post.id}>
-                { ({ match }) => <Page post={post} posts={posts} loading={true} show={match !== null} /> }
+                { ({ match }) => <Page post={post}
+                                       posts={posts}
+                                       nextPost={index + 1 !== posts.length + 1 ? posts[index + 1] : false}
+                                       prevPost={index !== 0 ? posts[index - 1] : false}
+                                       loading={true}
+                                       show={match !== null} /> }
               </Route>
             )}
           </LoadingMask>

@@ -16,6 +16,7 @@
 
     small {
       @extend .text-secondary;
+      font-family: $font-family-sans-serif;
     }
   }
 }
@@ -29,8 +30,6 @@
 }
 
 .featuredImage {
-  @extend .mb-3;
-
   width: 100%;
 }
 
@@ -56,6 +55,12 @@
       margin-top: -3rem;
     }
   }
+
+  h3 {
+    @extend .text-secondary;
+
+    font-family: $font-family-sans-serif;
+  }
 }
 
 .videos {
@@ -78,5 +83,30 @@
 
   h4 {
     @include font-size($font-size-sm);
+  }
+}
+
+.pagination {
+  @extend .mb-3;
+  @extend .py-4;
+  @extend .row;
+
+  background-color: $black;
+}
+
+.home,
+.previous,
+.next {
+  @extend .col-4;
+  @extend .d-flex;
+  @extend .justify-content-center;
+
+  a {
+    color: $white;
+    font-family: $font-family-sans-serif;
+  }
+
+  i {
+    @extend .mx-3;
   }
 }
