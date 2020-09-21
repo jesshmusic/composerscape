@@ -2,8 +2,10 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route, Link,
+  Route,
 } from "react-router-dom";
+import LoadingMask from "react-loadingmask";
+import "react-loadingmask/dist/react-loadingmask.css";
 import styles from './App.module.scss';
 
 import HomePage from "./pages/Home";
@@ -12,26 +14,37 @@ import Page from "./pages/Page";
 import axios from 'axios';
 import Header from "./components/Header";
 
+const fontSize = 80;
+const Spin = <i className="fas fa-sync-alt rc-loading-spin" style={{ fontSize }} />;
+
 class App extends React.Component {
 
   // State of your application
   state = {
     posts: [],
-    error: null
+    error: null,
+    loading: true
   }
 
   // Fetch your restaurants immediately after the component is mounted
   componentDidMount = async () => {
     try {
-      const response = await axios.get('https://composerscape-api.herokuapp.com/posts');
-      this.setState({ posts: response.data })
+      const response = await axios.get('https://composerscape-api.herokuapp.com/posts?_sort=created_at:desc');
+      console.log(response.data);
+      this.setState({
+        posts: response.data,
+        loading: false
+      })
     } catch(error) {
-      this.setState({ error })
+      this.setState({
+        error,
+        loading: false,
+      })
     }
   }
 
   render() {
-    const { error, posts } = this.state
+    const { error, posts, loading } = this.state
 
     // Print errors if any
     if (error) {
@@ -42,18 +55,19 @@ class App extends React.Component {
       <Router>
         <div className={styles.app}>
           <Header />
-          <Switch>
+          <LoadingMask loading={loading} indicator={Spin}>
             <Route exact
                    path={`/`}
-                   key={'0000'}
-                   render={() => <HomePage posts={posts} />} />
+                   key={'0000'}>
+              { ({ match }) => <HomePage posts={posts} loading={true} show={match !== null} /> }
+            </Route>
             {posts.map(post =>
-              <Route exact
-                     path={`/posts/${post.id}`}
-                     key={post.id}
-                     render={() => <Page post={post} posts={posts} /> } />
+              <Route path={`/posts/${post.id}`}
+                     key={post.id}>
+                { ({ match }) => <Page post={post} posts={posts} loading={true} show={match !== null} /> }
+              </Route>
             )}
-          </Switch>
+          </LoadingMask>
         </div>
       </Router>
     );

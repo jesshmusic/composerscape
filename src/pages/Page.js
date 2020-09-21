@@ -5,12 +5,13 @@ import VideoPlayer from "../components/VideoPlayer";
 import ContainerFluid from "../components/ContainerFluid";
 import Image from "react-bootstrap/Image";
 import ReactMarkdown from "react-markdown";
+import moment from "moment";
 
 class Page extends React.Component {
   render() {
-    const { post, posts } = this.props;
+    const { post, posts, show } = this.props;
     return(
-      <ContainerFluid posts={ posts }>
+      <ContainerFluid posts={ posts } show={show}>
         <div className={ styles.page } id={'pageTop'}>
           <div className={ styles.heading }>
             { post.featuredImage ?
@@ -24,6 +25,7 @@ class Page extends React.Component {
             <h1>
               { post.title } <small>{ post.subtitle }</small>
             </h1>
+            <h2 className={styles.date}>{ moment(post.created_at).format('MMMM Do, YYYY') }</h2>
           </div>
           <div className={ styles.content }>
             <ReactMarkdown source={ post.content } />

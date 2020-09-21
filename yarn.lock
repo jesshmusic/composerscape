@@ -9238,6 +9238,15 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-loadingmask@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/react-loadingmask/-/react-loadingmask-4.0.6.tgz#4a9b5887d8451c4b7ee99b07eb3cd3b38ecf5b08"
+  integrity sha512-E+hjcSYhqkwgGEBRpAtdz/OExyr4VQjZjmWBSg3nOYXG3tLPS6L2cYWmxCrIvSSD9wqIGvm7i5ZEgSzFsXmZrw==
+  dependencies:
+    classnames "^2.2.6"
+    react "^16.13.1"
+    react-dom "^16.13.1"
+
 react-markdown@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-4.3.1.tgz#39f0633b94a027445b86c9811142d05381300f2f"

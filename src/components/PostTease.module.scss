@@ -10,6 +10,7 @@
 
   h3 {
     @extend .h5;
+    @extend .text-secondary;
   }
 }
 
@@ -35,6 +36,10 @@
     max-width: none;
     width: auto;
   }
+}
+
+.overline {
+  @extend .text-muted;
 }
 
 .content {

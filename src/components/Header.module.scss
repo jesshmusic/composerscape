@@ -16,15 +16,23 @@
   top: 0;
   width: 100%;
   z-index: 1000;
+
+  a {
+    @extend .py-2;
+    font-size: $font-size-lg;
+  }
 }
 
 .banner {
+  @include media-breakpoint-up(md) {
+    background-size: cover;
+  }
   @include media-breakpoint-up(xl) {
     min-height: 235px;
   }
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   color: $black;
   display: block;
   font-size: $h2-font-size;

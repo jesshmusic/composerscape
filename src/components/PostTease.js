@@ -14,7 +14,7 @@ const PostTease = ({post}) => (
       </div>
       <div className={styles.content}>
         <div className={styles.overline}>
-          { moment().format('MMMM Do, YYYY') }
+          { moment(post.created_at).format('MMMM Do, YYYY') }
         </div>
         <h2>{post.title}</h2>
         <h3>{post.subtitle}</h3>

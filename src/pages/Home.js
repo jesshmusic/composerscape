@@ -5,14 +5,16 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 import styles from './Home.module.scss';
 
-const HomePage = ({posts}) => (
-  <ContainerFluid>
-    <ListGroup variant={'flush'} className={styles.home}>
-      {posts.map(post =>
-        <PostTease post={post} key={post.id}  />
-      )}
-    </ListGroup>
-  </ContainerFluid>
-);
+const HomePage = ({posts, show}) => {
+  return (
+    <ContainerFluid show={ show }>
+      <ListGroup variant={ 'flush' } className={ styles.home }>
+        { posts.map( post =>
+          <PostTease post={ post } key={ post.id }/>
+        ) }
+      </ListGroup>
+    </ContainerFluid>
+  );
+}
 
 export default HomePage;

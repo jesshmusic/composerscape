@@ -11,6 +11,7 @@
 
 .containerFluid {
   @extend .container-fluid;
+  @extend .position-absolute;
 
   background-color: $secondary;
 }

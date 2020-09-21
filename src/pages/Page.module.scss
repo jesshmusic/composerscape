@@ -10,10 +10,22 @@
 .heading {
 
   h1 {
-    @extend .mb-3;
+    @extend .mb-0;
     @extend .pl-2;
     @extend .pl-md-3;
+
+    small {
+      @extend .text-secondary;
+    }
   }
+}
+
+.date {
+  @extend .mb-3;
+  @extend .pl-2;
+  @extend .pl-md-3;
+  @extend .h4;
+  @extend .text-info;
 }
 
 .featuredImage {

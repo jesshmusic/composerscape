@@ -11,10 +11,14 @@ const Header = () => (
     </Link>
     <Nav className="justify-content-center">
       <Nav.Item as="li">
-        <Nav.Link href={'https://www.youtube.com/channel/UCHx8Wioh6Cz8X-WwOuXFspQ'} target={'_blank'}>YouTube</Nav.Link>
+        <Nav.Link href={'https://www.youtube.com/channel/UCHx8Wioh6Cz8X-WwOuXFspQ'} target={'_blank'}>
+          <i className="fab fa-youtube"/> YouTube
+        </Nav.Link>
       </Nav.Item>
       <Nav.Item as="li">
-        <Nav.Link href={'https://twitter.com/CapeComposers'} target={'_blank'}>Twitter</Nav.Link>
+        <Nav.Link href={'https://twitter.com/CapeComposers'} target={'_blank'}>
+          <i className="fab fa-twitter"/> Twitter
+        </Nav.Link>
       </Nav.Item>
     </Nav>
   </div>
