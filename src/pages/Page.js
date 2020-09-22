@@ -7,12 +7,11 @@ import Image from "react-bootstrap/Image";
 import ReactMarkdown from "react-markdown";
 import moment from "moment";
 import { Link } from "react-router-dom";
-import Pagination from "react-bootstrap/Pagination";
 
 class Page extends React.Component {
   render() {
     const { post, posts, show, nextPost, prevPost } = this.props;
-    console.log(posts);
+
     return(
       <ContainerFluid posts={ posts } show={show}>
         <div className={ styles.page } id={'pageTop'}>

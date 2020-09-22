@@ -1,5 +1,5 @@
 import styles from "./Header.module.scss";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SiteBanner from "../assets/images/SiteBanner.jpg";
 import React from "react";
 import { Nav } from "react-bootstrap";
