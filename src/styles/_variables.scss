@@ -12,7 +12,7 @@ $c-brown: #463028;
 $c-blue: #465462;
 $c-green: #486246;
 $c-green-dark: darken($c-green, 20%);
-$c-indigo: #524662;
+$c-indigo: #8d8d8d;
 $c-tan: #736963;
 $c-red: #CC3333;
 $c-light: #e2dede;
@@ -76,6 +76,7 @@ $spacers: map-merge(
 $font-family-sans-serif: 'Permanent Marker', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-family-sans: 'Yanone Kaffeesatz';
 $font-family-base: $font-family-sans;
+$font-family-display: 'Bangers', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $font-size-base: 1.25rem;
 
 $headings-margin-bottom: $spacer;

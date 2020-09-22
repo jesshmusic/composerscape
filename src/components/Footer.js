@@ -1,4 +1,4 @@
-import styles from "../styles/components/Footer.module.scss";
+import styles from "./Footer.module.scss";
 import React from "react";
 
 const Footer = () => {
@@ -7,15 +7,14 @@ const Footer = () => {
       <div className={styles.container}>
         <div className={styles.row}>
           <div className={styles.col}>
-            <h4>Jess Hendricks <small>Composer of music for film, games, and media</small></h4>
-            <address>
-              Easthampton, MA, USA<br/>
-              <a href={'//existentialmusic.com'} target='_blank' rel='noopener noreferrer'>ExistentialMusic.com</a><br/>
-              <a href={'tel:(413) 367-6215'}>(413) 367-6215</a>
-            </address>
+            <h4>Composers<span>CAPE</span> <small>YouTube channel for music, movie, and other discussion and opinion</small></h4>
+            <div className="g-ytsubscribe"
+                 data-channelid="UCHx8Wioh6Cz8X-WwOuXFspQ"
+                 data-layout="full"
+                 data-theme="dark"
+                 data-count="hidden"/>
           </div>
           <div className={styles.col}>
-
           </div>
         </div>
       </div>

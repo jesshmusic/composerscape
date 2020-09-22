@@ -8,24 +8,24 @@ const startState = { autoAlpha: 0, y: -50 };
 const ContainerFluid = ({ children, show }) => {
   const nodeRef = React.createRef();
   return (
-    <Transition unmountOnExit
-                in={ show }
-                timeout={ 1000 }
-                onEnter={ node => gsap.set( node, startState ) }
-                addEndListener={ ( node, done ) => {
-                  gsap.to( node, 1, {
-                    autoAlpha: show ? 1 : 0,
-                    y: show ? 0 : 250,
-                    onComplete: done
-                  });}} >
       <div className={ styles.containerFluid } ref={ nodeRef }>
         <div className={ 'row' }>
+          <Transition unmountOnExit
+                      in={ show }
+                      timeout={ 1000 }
+                      onEnter={ node => gsap.set( node, startState ) }
+                      addEndListener={ ( node, done ) => {
+                        gsap.to( node, 1, {
+                          autoAlpha: show ? 1 : 0,
+                          y: show ? 0 : 250,
+                          onComplete: done
+                        });}} >
           <div className={ styles.container }>
             { children }
           </div>
+        </Transition>
         </div>
       </div>
-    </Transition>
   );
 };
 

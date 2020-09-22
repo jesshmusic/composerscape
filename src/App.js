@@ -12,6 +12,7 @@ import Page from "./pages/Page";
 
 import axios from 'axios';
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const fontSize = 80;
 const Spin = <i className="fas fa-sync-alt rc-loading-spin" style={{ fontSize }} />;
@@ -72,6 +73,7 @@ class App extends React.Component {
               </Route>
             )}
           </LoadingMask>
+          <Footer />
         </div>
       </Router>
     );

@@ -1,0 +1,49 @@
+@import '../styles/base';
+
+.footer {
+  @extend .border-top;
+
+  background-color: $black;
+  color: $white;
+  height: 250px;
+
+  h4 {
+    @extend .mb-2;
+    font-family: $font-family-sans-serif;
+
+    span {
+      color: $secondary;
+      font-family: $font-family-display;
+      font-size: 110%;
+    }
+
+    small {
+      @extend .text-info;
+      @extend .d-block;
+    }
+  }
+}
+
+.container {
+  @extend .container;
+}
+
+.row {
+  @extend .row;
+}
+
+.col {
+  @extend .col-12;
+  @extend .col-md-6;
+  @extend .py-4;
+}
+
+.copyrightBar {
+  @extend .px-4;
+  @extend .py-2;
+  @extend .text-muted;
+
+  background-color: $c-dark;
+  color: $white;
+  font-size: $font-size-sm;
+}
