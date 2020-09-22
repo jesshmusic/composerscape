@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import LoadingMask from "react-loadingmask";
 import "react-loadingmask/dist/react-loadingmask.css";
-import TagManager from 'react-gtm-module';
+import ReactGA from 'react-ga';
 
 import styles from './App.module.scss';
 
@@ -16,14 +16,11 @@ import axios from 'axios';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const tagManagerArgs = {
-  gtmId: 'GTM-T86L6NK'
-};
-
-TagManager.initialize(tagManagerArgs);
-
 const fontSize = 80;
 const Spin = <i className="fas fa-sync-alt rc-loading-spin" style={{ fontSize }} />;
+
+ReactGA.initialize('UA-000000-01');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 class App extends React.Component {
 
