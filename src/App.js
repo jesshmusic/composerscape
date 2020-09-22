@@ -5,6 +5,8 @@ import {
 } from "react-router-dom";
 import LoadingMask from "react-loadingmask";
 import "react-loadingmask/dist/react-loadingmask.css";
+import TagManager from 'react-gtm-module';
+
 import styles from './App.module.scss';
 
 import HomePage from "./pages/Home";
@@ -13,6 +15,12 @@ import Page from "./pages/Page";
 import axios from 'axios';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+
+const tagManagerArgs = {
+  gtmId: 'GTM-T86L6NK'
+};
+
+TagManager.initialize(tagManagerArgs);
 
 const fontSize = 80;
 const Spin = <i className="fas fa-sync-alt rc-loading-spin" style={{ fontSize }} />;
