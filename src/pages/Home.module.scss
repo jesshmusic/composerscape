@@ -1,9 +1,4 @@
 @import '../styles/base';
 
 .home {
-  @include media-breakpoint-up(xl) {
-    padding-top: 300px;
-  }
-
-  padding-top: 212px;
 }

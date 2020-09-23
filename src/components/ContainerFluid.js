@@ -2,30 +2,31 @@ import React from "react";
 import { Transition } from "react-transition-group";
 import gsap from 'gsap';
 import styles from "./Container.module.scss";
+import Footer from "./Footer";
 
-const startState = { autoAlpha: 0, y: -50 };
+const startState = { autoAlpha: 0, x: '-100%' };
 
 const ContainerFluid = ({ children, show }) => {
   const nodeRef = React.createRef();
   return (
+    <Transition unmountOnExit
+                in={ show }
+                timeout={ 1000 }
+                onEnter={ node => gsap.set( node, startState ) }
+                addEndListener={ ( node, done ) => {
+                  gsap.to( node, {
+                    autoAlpha: show ? 1 : 0,
+                    x: show ? 0 : '100%',
+                    onComplete: done,
+                    duration: 2
+                  });}} >
       <div className={ styles.containerFluid } ref={ nodeRef }>
-        <div className={ 'row' }>
-          <Transition unmountOnExit
-                      in={ show }
-                      timeout={ 1000 }
-                      onEnter={ node => gsap.set( node, startState ) }
-                      addEndListener={ ( node, done ) => {
-                        gsap.to( node, 1, {
-                          autoAlpha: show ? 1 : 0,
-                          y: show ? 0 : 250,
-                          onComplete: done
-                        });}} >
-          <div className={ styles.container }>
-            { children }
-          </div>
-        </Transition>
+        <div className={ styles.container }>
+          { children }
         </div>
+        <Footer />
       </div>
+    </Transition>
   );
 };
 

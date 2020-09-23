@@ -2,15 +2,22 @@
 
 .container {
   @extend .px-0;
-  @extend .pb-4;
   @extend .shadow-lg;
+  @include media-breakpoint-up(xl) {
+    padding-top: 300px;
+  }
+
 
   background-color: $white;
+  min-height: calc(100vh - 275px);
   overflow: hidden;
+  padding-top: 212px;
 }
 
 .containerFluid {
   @extend .container-fluid;
+  @extend .position-absolute;
+  @extend .px-0;
 
   background-color: $secondary;
 }

@@ -1,7 +1,8 @@
 @import 'styles/base';
 
 .app {
-  min-height: calc(100vh - 250px);
+  background-color: $secondary;
+  height: 100vh;
   position: relative;
 }
 

@@ -1,16 +1,13 @@
 @import "../styles/base";
 
 .page {
-  @include media-breakpoint-up(xl) {
-    padding-top: 300px;
-  }
-  padding-top: 212px;
 }
 
 .heading {
 
   h1 {
     @extend .mb-0;
+    @extend .mt-3;
     @extend .pl-2;
     @extend .pl-md-3;
 
@@ -87,7 +84,7 @@
 }
 
 .pagination {
-  @extend .mb-3;
+  @extend .mb-0;
   @extend .py-4;
   @extend .row;
 

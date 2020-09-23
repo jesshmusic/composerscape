@@ -1,11 +1,9 @@
 @import '../styles/base';
 
 .footer {
-  @extend .border-top;
-
   background-color: $black;
+  border-top: 15px double $secondary;
   color: $white;
-  height: 250px;
 
   h4 {
     @extend .mb-2;

@@ -78,7 +78,6 @@ class App extends React.Component {
               </Route>
             )}
           </LoadingMask>
-          <Footer />
         </div>
       </Router>
     );
