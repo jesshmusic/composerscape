@@ -19,8 +19,8 @@ class Page extends React.Component {
             <meta charSet="utf-8" />
             <title>{ post.title } | { post.subtitle } | ComposersCAPE</title>
             <link rel="canonical" href={ `http://composerscape.com${path}` } />
-            <meta name="og:title" content={`${ post.title } | ${ post.subtitle } | ComposersCAPE`} />
-            <meta name="twitter:title" content={`${ post.title } | ${ post.subtitle } | ComposersCAPE`} />
+            <meta property="og:title" content={`${ post.title } | ${ post.subtitle } | ComposersCAPE`} />
+            <meta property="twitter:title" content={`${ post.title } | ${ post.subtitle } | ComposersCAPE`} />
           </Helmet>
           <div className={ styles.heading }>
             { post.featuredImage ?

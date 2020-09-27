@@ -13,8 +13,8 @@ const HomePage = ({posts, show}) => {
         <meta charSet="utf-8" />
         <title>Home | ComposersCAPE</title>
         <link rel="canonical" href={ `http://composerscape.com/` } />
-        <meta name="og:title" content={`Home | ComposersCAPE`} />
-        <meta name="twitter:title" content={`Home | ComposersCAPE`} />
+        <meta property="og:title" content={`Home | ComposersCAPE`} />
+        <meta property="twitter:title" content={`Home | ComposersCAPE`} />
       </Helmet>
       <ContainerFluid show={ show }>
         <ListGroup variant={ 'flush' } className={ styles.home }>
