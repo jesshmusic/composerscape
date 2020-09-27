@@ -63,7 +63,7 @@ class App extends React.Component {
             <Route exact
                    path={`/`}
                    key={'0000'}>
-              { ({ match }) => <HomePage posts={posts} loading={true} show={match !== null} /> }
+              { ({ match }) => <HomePage posts={posts} loading={true} show={match !== null} path={'/'} /> }
             </Route>
             {posts.map((post, index) =>
 
@@ -73,6 +73,7 @@ class App extends React.Component {
                                        posts={posts}
                                        nextPost={index + 1 !== posts.length + 1 ? posts[index + 1] : false}
                                        prevPost={index !== 0 ? posts[index - 1] : false}
+                                       path={`/posts/${post.id}`}
                                        loading={true}
                                        show={match !== null} /> }
               </Route>

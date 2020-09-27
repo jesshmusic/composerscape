@@ -17,6 +17,7 @@
     "react-ga": "^3.1.2",
     "react-gsap": "^2.2.1",
     "react-gtm-module": "^2.0.11",
+    "react-helmet": "^6.1.0",
     "react-loadingmask": "^4.0.6",
     "react-markdown": "^4.3.1",
     "react-player": "^2.6.2",

@@ -7,14 +7,21 @@ import Image from "react-bootstrap/Image";
 import ReactMarkdown from "react-markdown";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 class Page extends React.Component {
   render() {
-    const { post, posts, show, nextPost, prevPost } = this.props;
-
+    const { path, post, posts, show, nextPost, prevPost } = this.props;
     return(
       <ContainerFluid posts={ posts } show={show}>
         <div className={ styles.page } id={'pageTop'}>
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>{ post.title } | { post.subtitle } | ComposersCAPE</title>
+            <link rel="canonical" href={ `http://composerscape.com${path}` } />
+            <meta name="og:title" content={`${ post.title } | ${ post.subtitle } | ComposersCAPE`} />
+            <meta name="twitter:title" content={`${ post.title } | ${ post.subtitle } | ComposersCAPE`} />
+          </Helmet>
           <div className={ styles.heading }>
             { post.featuredImage ?
               (
