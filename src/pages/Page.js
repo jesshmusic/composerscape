@@ -12,6 +12,7 @@ import { Helmet } from "react-helmet";
 class Page extends React.Component {
   render() {
     const { path, post, posts, show, nextPost, prevPost } = this.props;
+
     return(
       <ContainerFluid posts={ posts } show={show}>
         <div className={ styles.page } id={'pageTop'}>
@@ -25,7 +26,7 @@ class Page extends React.Component {
           <div className={ styles.heading }>
             { post.featuredImage ?
               (
-                <Image src={ post.featuredImage.formats.large.url }
+                <Image src={ post.featuredImage.formats.large ? post.featuredImage.formats.large.url : post.featuredImage.url }
                        alt={ post.featuredImage.alt }
                        className={styles.featuredImage}
                        fluid />

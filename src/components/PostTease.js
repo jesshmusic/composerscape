@@ -10,7 +10,8 @@ const PostTease = ({post}) => (
   <ListGroupItem className={styles.postTease}>
     <Link to={`/posts/${post.id}`} className={styles.link}>
       <div className={styles.imageContainer}>
-        <Image src={ post.featuredImage.formats.small.url } alt={ post.featuredImage.alt } />
+        <Image src={ post.featuredImage.formats.small ? post.featuredImage.formats.small.url : post.featuredImage.url }
+               alt={ post.featuredImage.alt } />
       </div>
       <div className={styles.content}>
         <div className={styles.overline}>
