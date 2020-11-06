@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 import LoadingMask from "react-loadingmask";
 import "react-loadingmask/dist/react-loadingmask.css";
-import ReactGA from 'react-ga';
 
 import styles from './App.module.scss';
 
@@ -17,9 +16,6 @@ import Header from "./components/Header";
 
 const fontSize = 80;
 const Spin = <i className="fas fa-sync-alt rc-loading-spin" style={{ fontSize }} />;
-
-ReactGA.initialize('UA-000000-01');
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 class App extends React.Component {
 
