@@ -41,6 +41,29 @@ class Page extends React.Component {
           <div className={ styles.content }>
             <ReactMarkdown source={ post.content } />
           </div>
+          {post.spotifyUrl ? (
+            <div className={ styles.content }>
+              <h3>Listen on Spotify</h3>
+              <iframe src={post.spotifyUrl}
+                      width="100%"
+                      height="232"
+                      frameBorder="0"
+                      allowTransparency="true"
+                      allow="encrypted-media"/>
+            </div>
+          ) : null}
+          {post.anchorUrl ? (
+            <div className={ styles.content }>
+              <h3>Listen on Anchor</h3>
+              <iframe src={post.anchorUrl}
+                      width="100%"
+                      height="180"
+                      frameBorder="0"
+                      scrolling="no"
+                      allowTransparency="true"
+                      allow="encrypted-media"/>
+            </div>
+          ) : null}
           {
             post.video && post.video.length > 0 ? (
               <div>
