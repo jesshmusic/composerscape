@@ -8,6 +8,7 @@ import ReactMarkdown from "react-markdown";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { PostType } from '../utilities/types'
 
 class Page extends React.Component {
   render() {
@@ -48,6 +49,7 @@ class Page extends React.Component {
                       width="100%"
                       height="232"
                       frameBorder="0"
+                      title="Spotify Podcast"
                       allowTransparency="true"
                       allow="encrypted-media"/>
             </div>
@@ -60,6 +62,7 @@ class Page extends React.Component {
                       height="180"
                       frameBorder="0"
                       scrolling="no"
+                      title="Anchor Podcast"
                       allowTransparency="true"
                       allow="encrypted-media"/>
             </div>
@@ -110,9 +113,8 @@ const PostPagination = ({nextPost, prevPost}) =>
     </div>
   </div>;
 
-
 Page.propTypes = {
-  post: PropTypes.object.isRequired,
+  post: PropTypes.shape(PostType).isRequired,
   posts: PropTypes.array.isRequired,
 }
 

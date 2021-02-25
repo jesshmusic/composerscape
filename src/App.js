@@ -14,8 +14,9 @@ import Page from "./pages/Page";
 import axios from 'axios';
 import Header from "./components/Header";
 
+export const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:1337' : 'https://composerscape-api.herokuapp.com';
 const fontSize = 80;
-const Spin = <i className="fas fa-sync-alt rc-loading-spin" style={{ fontSize }} />;
+export const Spin = <i className="fas fa-sync-alt rc-loading-spin" style={{ fontSize }} />;
 
 class App extends React.Component {
 
@@ -23,27 +24,37 @@ class App extends React.Component {
   state = {
     posts: [],
     error: null,
-    loading: true
+    loading: true,
+    latestEpisodes: [],
+    featuredArticle: null,
   }
 
   // Fetch your restaurants immediately after the component is mounted
   componentDidMount = async () => {
     try {
-      const response = await axios.get('https://composerscape-api.herokuapp.com/posts?_sort=created_at:desc');
+      const response = await axios.get(`${API_URL}/posts?_sort=created_at:desc`);
+      const homeResponse = await axios.get(`${API_URL}/composers-cape-home`);
       this.setState({
+        latestEpisodes: homeResponse.data.latestEpisodes,
+        featuredArticle: homeResponse.data.featuredArticle,
         posts: response.data,
         loading: false
+      }, () => {
+        console.log(process.env);
+        console.log(this.state);
       })
     } catch(error) {
       this.setState({
         error,
         loading: false,
+      }, () => {
+        console.log(error);
       })
     }
   }
 
   render() {
-    const { error, posts, loading } = this.state
+    const { error, posts, loading, latestEpisodes, featuredArticle } = this.state
 
     // Print errors if any
     if (error) {
@@ -58,7 +69,15 @@ class App extends React.Component {
             <Route exact
                    path={`/`}
                    key={'0000'}>
-              { ({ match }) => <HomePage posts={posts} loading={true} show={match !== null} path={'/'} /> }
+              { ({ match }) =>
+                <HomePage
+                  posts={posts}
+                  loading={true}
+                  show={match !== null}
+                  path={'/'}
+                  latestEpisodes={latestEpisodes}
+                  featuredArticle={featuredArticle}
+                /> }
             </Route>
             {posts.map((post, index) =>
 
