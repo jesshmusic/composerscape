@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet";
 import { Col, Row } from 'react-bootstrap'
 import VideoPlayer from '../components/VideoPlayer'
 import PropTypes from 'prop-types'
-import { PostType } from '../utilities/types'
+import { LatestEpisodes, PostType } from '../utilities/types'
 
 const HomePage = ({posts, show, latestEpisodes, featuredArticle}) => {
 
@@ -51,12 +51,9 @@ const HomePage = ({posts, show, latestEpisodes, featuredArticle}) => {
 }
 
 HomePage.propTypes = {
-  posts: PropTypes.arrayOf(PropTypes.shape(PostType)).isRequired,
-  featuredArticle: PropTypes.shape(PostType),
-  latestEpisodes: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    episodeURL: PropTypes.string,
-  })),
+  posts: PropTypes.arrayOf(PostType).isRequired,
+  featuredArticle: PostType,
+  latestEpisodes: LatestEpisodes,
   show: PropTypes.bool,
 }
 

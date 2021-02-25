@@ -60,7 +60,7 @@ const PostTease = ( { post, featured } ) => {
 
 PostTease.propTypes = {
   featured: PropTypes.bool,
-  post: PropTypes.shape( PostType )
+  post: PostType
 }
 
 export default PostTease;

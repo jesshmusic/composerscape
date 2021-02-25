@@ -114,8 +114,8 @@ const PostPagination = ({nextPost, prevPost}) =>
   </div>;
 
 Page.propTypes = {
-  post: PropTypes.shape(PostType).isRequired,
-  posts: PropTypes.array.isRequired,
+  post: PostType.isRequired,
+  posts: PropTypes.arrayOf(PostType).isRequired,
 }
 
 export default Page;

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
 
-export const PostType = {
+export const PostType = PropTypes.shape({
   anchorUrl: PropTypes.string,
   content: PropTypes.string,
   created_at: PropTypes.string,
@@ -18,4 +18,9 @@ export const PostType = {
   spotifyUrl: PropTypes.string,
   subtitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
-}
+});
+
+export const LatestEpisodes = PropTypes.arrayOf(PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  episodeURL: PropTypes.string,
+}));
