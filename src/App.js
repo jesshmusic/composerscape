@@ -40,8 +40,10 @@ class App extends React.Component {
         posts: response.data,
         loading: false
       }, () => {
-        console.log(process.env);
-        console.log(this.state);
+        if ( process.env.NODE_ENV === 'development' ) {
+          console.log(process.env);
+          console.log(this.state);
+        }
       })
     } catch(error) {
       this.setState({
