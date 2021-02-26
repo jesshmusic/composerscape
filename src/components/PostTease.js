@@ -36,7 +36,6 @@ const PostTeaseFeaturedLarge = ( { post, feaaturedImageURL } ) => (
       <Link to={ `/posts/${ post.id }` } className={ styles.link }>
         { post.title }
       </Link>
-      <h3>{ post.subtitle }</h3>
       <p>{ post.excerpt ? post.excerpt : post.content }</p>
     </div>
   </div>
