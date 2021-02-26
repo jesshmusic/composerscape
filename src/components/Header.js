@@ -12,12 +12,22 @@ const Header = () => (
     <Nav className="justify-content-center">
       <Nav.Item as="li">
         <Nav.Link href={'https://www.youtube.com/channel/UCHx8Wioh6Cz8X-WwOuXFspQ'} target={'_blank'}>
-          <i className="fab fa-youtube"/> YouTube
+          <i className="fab fa-youtube"/>&nbsp;<span className="d-none d-md-inline">YouTube</span>
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item as="li">
+        <Nav.Link href={'https://podcasts.apple.com/us/podcast/composerscape/id1555183291'} target={'_blank'}>
+          <i className="fab fa-apple"/>&nbsp;<span className="d-none d-md-inline">Apple Podcasts</span>
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item as="li">
+        <Nav.Link href={'https://open.spotify.com/show/3y9vLGBd0B03KIsXlhE6nP'} target={'_blank'}>
+          <i className="fab fa-spotify"/>&nbsp;<span className="d-none d-md-inline">Spotify</span>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item as="li">
         <Nav.Link href={'https://twitter.com/CapeComposers'} target={'_blank'}>
-          <i className="fab fa-twitter"/> Twitter
+          <i className="fab fa-twitter"/>&nbsp;<span className="d-none d-md-inline">Twitter</span>
         </Nav.Link>
       </Nav.Item>
     </Nav>
