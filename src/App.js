@@ -10,11 +10,10 @@ import styles from './App.module.scss';
 
 import HomePage from "./pages/Home";
 import Page from "./pages/Page";
-
-import axios from 'axios';
 import Header from "./components/Header";
 
-export const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:1337' : 'https://composerscape-api.herokuapp.com';
+import { getState } from './utilities/api'
+
 const fontSize = 80;
 export const Spin = <i className="fas fa-sync-alt rc-loading-spin" style={{ fontSize }} />;
 
@@ -27,36 +26,23 @@ class App extends React.Component {
     loading: true,
     latestEpisodes: [],
     featuredArticle: null,
+    otherFeaturedPosts: [],
+    homeSubtitle: ''
   }
 
   // Fetch your restaurants immediately after the component is mounted
   componentDidMount = async () => {
-    try {
-      const response = await axios.get(`${API_URL}/posts?_sort=created_at:desc`);
-      const homeResponse = await axios.get(`${API_URL}/composers-cape-home`);
-      this.setState({
-        latestEpisodes: homeResponse.data.latestEpisodes,
-        featuredArticle: homeResponse.data.featuredArticle,
-        posts: response.data,
-        loading: false
-      }, () => {
-        if ( process.env.NODE_ENV === 'development' ) {
-          console.log(process.env);
-          console.log(this.state);
-        }
-      })
-    } catch(error) {
-      this.setState({
-        error,
-        loading: false,
-      }, () => {
-        console.log(error);
-      })
-    }
+    const siteState = await getState();
+    this.setState(siteState, () => {
+      if ( process.env.NODE_ENV === 'development' ) {
+        console.log(process.env);
+        console.log(this.state);
+      }
+    });
   }
 
   render() {
-    const { error, posts, loading, latestEpisodes, featuredArticle } = this.state
+    const { error, posts, loading, latestEpisodes, featuredArticle, otherFeaturedPosts, homeSubtitle } = this.state
 
     // Print errors if any
     if (error) {
@@ -79,6 +65,8 @@ class App extends React.Component {
                   path={'/'}
                   latestEpisodes={latestEpisodes}
                   featuredArticle={featuredArticle}
+                  otherFeaturedPosts={otherFeaturedPosts}
+                  homeSubtitle={homeSubtitle}
                 /> }
             </Route>
             {posts.map((post, index) =>

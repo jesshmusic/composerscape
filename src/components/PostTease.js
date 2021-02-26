@@ -8,13 +8,13 @@ import moment from 'moment';
 import styles from './PostTease.module.scss';
 import { PostType } from '../utilities/types';
 
-const PostTeaseSmall = ( { post } ) => (
+const PostTeaseSmall = ( { post, feaaturedImageURL } ) => (
   <ListGroupItem className={ styles.postTease }>
     <Link to={ `/posts/${ post.id }` } className={ styles.link }>
       { post.featuredImage && post.featuredImage.formats ? (
         <div className={ styles.imageContainer }>
           <Image
-            src={ post.featuredImage.formats.small ? post.featuredImage.formats.small.url : post.featuredImage.url }
+            src={ feaaturedImageURL }
             alt={ post.featuredImage.alt }/>
         </div>
       ) : null }
@@ -29,38 +29,45 @@ const PostTeaseSmall = ( { post } ) => (
   </ListGroupItem>
 );
 
-const PostTeaseFeatured = ( { post } ) => (
-  <div>
-    <Link to={ `/posts/${ post.id }` } className={ styles.link }>
-      { post.featuredImage && post.featuredImage.formats ? (
-        <div className={ styles.imageContainer }>
-          <Image
-            src={ post.featuredImage.formats.small ? post.featuredImage.formats.small.url : post.featuredImage.url }
-            alt={ post.featuredImage.alt }/>
-        </div>
-      ) : null }
-    </Link>
+const PostTeaseFeaturedLarge = ( { post, feaaturedImageURL } ) => (
+  <div className={`${styles.featuredPost} ${styles.large}`} style={{backgroundImage: `url("${feaaturedImageURL}")`}}>
     <div className={ styles.content }>
       <div className={ styles.overline }>Featured Article</div>
       <Link to={ `/posts/${ post.id }` } className={ styles.link }>
-        <h2>{ post.title }</h2>
+        { post.title }
       </Link>
       <h3>{ post.subtitle }</h3>
-      <p>{ post.content }</p>
+      <p>{ post.excerpt ? post.excerpt : post.content }</p>
     </div>
   </div>
 )
 
-const PostTease = ( { post, featured } ) => {
+const PostTeaseFeaturedSmall = ( { post, feaaturedImageURL } ) => (
+  <div className={`${styles.featuredPost} ${styles.small}`} style={{backgroundImage: `url("${feaaturedImageURL}")`}}>
+    <div className={ styles.content }>
+      <Link to={ `/posts/${ post.id }` } className={ styles.link }>
+        { post.title }
+      </Link>
+      <h3>{ post.subtitle }</h3>
+    </div>
+  </div>
+)
+
+const PostTease = ( { post, featured, subFeatured } ) => {
+  const featuredImageURLSmall = post.featuredImage.formats.small ? post.featuredImage.formats.small.url : post.featuredImage.url
+  const featuredImageURLLarge = post.featuredImage.formats.large ? post.featuredImage.formats.large.url : post.featuredImage.url
   if ( featured ) {
-    return <PostTeaseFeatured post={ post }/>;
+    return <PostTeaseFeaturedLarge post={ post } feaaturedImageURL={featuredImageURLLarge}/>;
+  } else if (subFeatured) {
+    return <PostTeaseFeaturedSmall post={ post } feaaturedImageURL={featuredImageURLSmall}/>;
   }
-  return <PostTeaseSmall post={ post }/>;
+  return <PostTeaseSmall post={ post } feaaturedImageURL={featuredImageURLSmall}/>;
 }
 
 PostTease.propTypes = {
   featured: PropTypes.bool,
-  post: PostType
+  post: PostType,
+  subFeatured: PropTypes.bool,
 }
 
 export default PostTease;

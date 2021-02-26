@@ -1,4 +1,51 @@
 @import '../styles/base';
 
-.home {
+.features {
+  @extend .mb-5;
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.5fr 1fr;
+  }
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+  gap: 10px 10px;
+}
+
+.latestPosts {
+  @extend .pl-4;
+  @extend .pl-md-5;
+  @extend .pr-4;
+  @extend .pr-md-5;
+}
+
+.latestEpisodes {
+  @extend .px-4;
+  @extend .px-md-0;
+}
+
+.latestEpisodes, .latestPosts {
+  .sectionHeading {
+    @extend .pb-2;
+
+    border-bottom: .1rem solid theme-color(warning);
+  }
+}
+
+.subtitleBanner {
+  @extend .px-4;
+  @extend .py-3;
+
+  background-color: darken(theme-color(secondary), 25%);
+  margin-bottom: 5px;
+
+  h2 {
+    @extend .m-0;
+
+    color: theme-color(light);
+    font-size: $h4-font-size;
+    text-align: center;
+  }
 }
