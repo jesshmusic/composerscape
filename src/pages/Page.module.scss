@@ -24,6 +24,10 @@
   @extend .pl-md-3;
   @extend .h4;
   @extend .text-info;
+
+  span {
+    @extend .text-secondary;
+  }
 }
 
 .featuredImage {

@@ -13,13 +13,16 @@ import { PostType } from '../utilities/types'
 class Page extends React.Component {
   render() {
     const { path, post, posts, show, nextPost, prevPost } = this.props;
-
+    if ( process.env.NODE_ENV === 'development' ) {
+      console.log(post);
+    }
     return(
       <ContainerFluid posts={ posts } show={show}>
         <div className={ styles.page } id={'pageTop'}>
           <Helmet>
             <meta charSet="utf-8" />
             <title>{ post.title } | { post.subtitle } | ComposersCAPE</title>
+            <meta name="author" content={`${post.created_by.firstname} ${post.created_by.lastname}`} />
             <link rel="canonical" href={ `http://composerscape.com${path}` } />
             <meta property="og:title" content={`${ post.title } | ${ post.subtitle } | ComposersCAPE`} />
             <meta property="twitter:title" content={`${ post.title } | ${ post.subtitle } | ComposersCAPE`} />
@@ -37,7 +40,7 @@ class Page extends React.Component {
             <h1>
               { post.title } <small>{ post.subtitle }</small>
             </h1>
-            <h2 className={styles.date}>{ moment(post.created_at).format('MMMM Do, YYYY') }</h2>
+            <h2 className={styles.date}><span>{post.created_by.firstname} {post.created_by.lastname}</span> { moment(post.created_at).format('MMMM Do, YYYY') }</h2>
           </div>
           <div className={ styles.content }>
             <ReactMarkdown source={ post.content } />
