@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import styles from "./Container.module.scss";
 import Footer from "./Footer";
 
-const startState = { autoAlpha: 0, x: '-100%' };
+const startState = { autoAlpha: 0 };
 
 const ContainerFluid = ({ children, show }) => {
   const nodeRef = React.createRef();
@@ -16,9 +16,8 @@ const ContainerFluid = ({ children, show }) => {
                 addEndListener={ ( node, done ) => {
                   gsap.to( node, {
                     autoAlpha: show ? 1 : 0,
-                    x: show ? 0 : '100%',
                     onComplete: done,
-                    duration: 2
+                    duration: 1
                   });}} >
       <div className={ styles.containerFluid } ref={ nodeRef }>
         <div className={ styles.container }>
