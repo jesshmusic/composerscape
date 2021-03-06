@@ -40,11 +40,27 @@
 
   font-weight: 200;
 
+  blockquote {
+    @extend .py-4;
+
+    margin: 0 auto;
+    max-width: 600px;
+  }
+
+  span {
+    display: flex;
+    justify-content: center;
+  }
+
   p {
     @include font-size($font-size-lg);
     @extend .mb-4;
 
     line-height: $line-height-lg;
+
+    span {
+      display: inherit;
+    }
   }
 
   figure {
@@ -55,6 +71,10 @@
       @extend .pl-3;
       margin-top: -3rem;
     }
+  }
+
+  img {
+    @extend .img-fluid;
   }
 
   h3 {

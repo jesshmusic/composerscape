@@ -5,6 +5,7 @@ import VideoPlayer from "../components/VideoPlayer";
 import ContainerFluid from "../components/ContainerFluid";
 import Image from "react-bootstrap/Image";
 import ReactMarkdown from "react-markdown";
+import { htmlParser } from "react-markdown/plugins/html-parser";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -43,7 +44,7 @@ class Page extends React.Component {
             <h2 className={styles.date}><span>{post.created_by.firstname} {post.created_by.lastname}</span> { moment(post.created_at).format('MMMM Do, YYYY') }</h2>
           </div>
           <div className={ styles.content }>
-            <ReactMarkdown source={ post.content } />
+            <ReactMarkdown source={ post.content } escapeHtml={false} skipHtml={false} allowDangerousHtml={true} />
           </div>
           {post.spotifyUrl ? (
             <div className={ styles.content }>
