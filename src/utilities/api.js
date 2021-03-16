@@ -6,10 +6,10 @@ export const getState = async () => {
   try {
     const response = await axios.get(`${API_URL}/posts?_sort=created_at:desc`);
     const homeResponse = await axios.get(`${API_URL}/composers-cape-home`);
-    // if ( process.env.NODE_ENV === 'development' ) {
-    //   console.log(homeResponse.data);
-    //   console.log(response.data);
-    // }
+    if ( process.env.NODE_ENV === 'development' ) {
+      console.log(homeResponse.data);
+      console.log(response.data);
+    }
 
     const otherFeaturedPosts = homeResponse.data.otherFeaturedPosts && homeResponse.data.otherFeaturedPosts.length > 1 ? (
       homeResponse.data.otherFeaturedPosts.slice(0, 2)

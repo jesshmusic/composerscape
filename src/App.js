@@ -34,10 +34,10 @@ class App extends React.Component {
   componentDidMount = async () => {
     const siteState = await getState();
     this.setState(siteState, () => {
-      // if ( process.env.NODE_ENV === 'development' ) {
-      //   console.log(process.env);
-      //   console.log(this.state);
-      // }
+      if ( process.env.NODE_ENV === 'development' ) {
+        console.log(process.env);
+        console.log(this.state);
+      }
     });
   }
 
