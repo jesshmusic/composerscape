@@ -38,6 +38,34 @@ const HomePage = ({posts, show, latestEpisodes, featuredArticle, otherFeaturedPo
           </Col>
         </Row>
         <Row>
+          <Col xs={12} className={styles.subtitleBanner}>
+            <h2>Podcasts <small>Where to Listen</small></h2>
+          </Col>
+        </Row>
+        <Row className={styles.podcasts}>
+          <Col xs={12} lg={6} xl={4}>
+            <h3>iTunes</h3>
+            <iframe src="https://embed.podcasts.apple.com/us/podcast/episode-10-wandavision-finale-justice-league-teasers/id1555183291?i=1000512329040&amp;itsct=podcast_box&amp;itscg=30200&amp;theme=light"
+                    className={styles.podcastApple} />
+          </Col>
+          <Col xs={12} lg={6} xl={4}>
+            <h3>TuneIn</h3>
+            <iframe src="https://tunein.com/embed/player/p1416793/"
+                    className={styles.podcastIframe}
+                    scrolling="no"
+                    frameBorder="no"/>
+          </Col>
+          <Col xs={12} lg={6} xl={4}>
+            <h3>Spotify</h3>
+            <iframe src="https://open.spotify.com/embed-podcast/show/3y9vLGBd0B03KIsXlhE6nP"
+                    width="100%"
+                    height="232"
+                    frameBorder="0"
+                    allowTransparency="true"
+                    allow="encrypted-media"/>
+          </Col>
+        </Row>
+        <Row>
           <Col md={8} className={styles.latestPosts}>
             <h3 className={styles.sectionHeading}>Latest</h3>
             <ListGroup variant={ 'flush' } className={ styles.home }>

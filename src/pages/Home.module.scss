@@ -1,8 +1,6 @@
 @import '../styles/base';
 
 .features {
-  @extend .mb-5;
-
   @include media-breakpoint-up(md) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1.5fr 1fr;
@@ -32,6 +30,31 @@
 
     border-bottom: .1rem solid theme-color(warning);
   }
+}
+
+.podcastApple {
+  background-color: rgb(248,248,250);
+  border: 0;
+  border-radius: 8px;
+  height: 232px;
+  width: 100%;
+  max-width: 660px;
+  overflow: hidden;
+  background-position: initial initial;
+  background-repeat: initial initial;
+}
+
+.podcastIframe {
+  border: 0;
+  border-radius: 8px;
+  height: 232px;
+  width: 100%;
+}
+
+.podcasts {
+  @extend .px-3;
+  @extend .pt-3;
+  @extend .pb-5;
 }
 
 .subtitleBanner {
