@@ -46,6 +46,7 @@ const HomePage = ({posts, show, latestEpisodes, featuredArticle, otherFeaturedPo
           <Col xs={12} lg={6} xl={4}>
             <h3>iTunes</h3>
             <iframe src="https://embed.podcasts.apple.com/us/podcast/episode-10-wandavision-finale-justice-league-teasers/id1555183291?i=1000512329040&amp;itsct=podcast_box&amp;itscg=30200&amp;theme=light"
+                    title="iTunes Podcast Player"
                     className={styles.podcastApple} />
           </Col>
           <Col xs={12} lg={6} xl={4}>
@@ -53,6 +54,7 @@ const HomePage = ({posts, show, latestEpisodes, featuredArticle, otherFeaturedPo
             <iframe src="https://tunein.com/embed/player/p1416793/"
                     className={styles.podcastIframe}
                     scrolling="no"
+                    title="TuneIn Podcast Player"
                     frameBorder="no"/>
           </Col>
           <Col xs={12} lg={6} xl={4}>
@@ -62,6 +64,7 @@ const HomePage = ({posts, show, latestEpisodes, featuredArticle, otherFeaturedPo
                     height="232"
                     frameBorder="0"
                     allowTransparency="true"
+                    title="Spotify Podcast Player"
                     allow="encrypted-media"/>
           </Col>
         </Row>

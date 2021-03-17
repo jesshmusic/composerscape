@@ -5,7 +5,6 @@ import VideoPlayer from "../components/VideoPlayer";
 import ContainerFluid from "../components/ContainerFluid";
 import Image from "react-bootstrap/Image";
 import ReactMarkdown from "react-markdown";
-import { htmlParser } from "react-markdown/plugins/html-parser";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
