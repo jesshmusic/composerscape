@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 export const PostType = PropTypes.shape({
   anchorUrl: PropTypes.string,
+  appleUrl: PropTypes.string,
   content: PropTypes.string,
   created_at: PropTypes.string,
   featuredImage: PropTypes.shape({

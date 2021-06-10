@@ -70,14 +70,34 @@ class Page extends React.Component {
                       allow="encrypted-media"/>
             </div>
           ) : null}
+          {post.appleUrl ? (
+            <div className={ styles.content }>
+              <h3>Listen on Apple Podcasts</h3>
+              <iframe
+                src={post.appleUrl}
+                height="175px" frameBorder="0"
+                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+                allow="autoplay *; encrypted-media *;"
+                title="Apple Podcast"
+                style={{
+                  width: '100%',
+                  maxWidth: '100%',
+                  overflow: 'hidden',
+                }} />
+            </div>
+          ) : null}
           {
             post.video && post.video.length > 0 ? (
               <div>
                 <div className={ styles.videos }>
                   { post.video.map( ( singleVideo, index ) => (
                     <div key={ index } className={ styles.videoColumn }>
-                      <h3>{ singleVideo.title }</h3>
-                      <h4>{ singleVideo.subtitle }</h4>
+                      {singleVideo.title ? (
+                        <h3>{ singleVideo.title }</h3>
+                      ): null}
+                      {singleVideo.title ? (
+                        <h4>{ singleVideo.subtitle }</h4>
+                      ): null}
                       <VideoPlayer videoSourceURL={ singleVideo.videoSourceURL }/>
                     </div>
                   ) ) }

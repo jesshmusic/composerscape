@@ -45,7 +45,7 @@ const HomePage = ({posts, show, latestEpisodes, featuredArticle, otherFeaturedPo
         <Row className={styles.podcasts}>
           <Col xs={12} lg={6} xl={4}>
             <h3>iTunes</h3>
-            <iframe src="https://embed.podcasts.apple.com/us/podcast/episode-10-wandavision-finale-justice-league-teasers/id1555183291?i=1000512329040&amp;itsct=podcast_box&amp;itscg=30200&amp;theme=light"
+            <iframe src="https://embed.podcasts.apple.com/us/podcast/composerscape/id1555183291?itsct=podcast_box_player&amp;itscg=30200&amp;theme=auto"
                     title="iTunes Podcast Player"
                     className={styles.podcastApple} />
           </Col>
@@ -61,7 +61,7 @@ const HomePage = ({posts, show, latestEpisodes, featuredArticle, otherFeaturedPo
             <h3>Spotify</h3>
             <iframe src="https://open.spotify.com/embed-podcast/show/3y9vLGBd0B03KIsXlhE6nP"
                     width="100%"
-                    height="232"
+                    height="450"
                     frameBorder="0"
                     allowTransparency="true"
                     title="Spotify Podcast Player"
