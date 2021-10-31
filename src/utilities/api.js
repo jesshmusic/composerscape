@@ -4,22 +4,19 @@ export const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhos
 
 export const getState = async () => {
   try {
-    const response = await axios.get(`${API_URL}/posts?_sort=created_at:desc`);
+    const response = await axios.get(`${API_URL}/posts?_sort=published_at:desc`);
     const homeResponse = await axios.get(`${API_URL}/composers-cape-home`);
     if ( process.env.NODE_ENV === 'development' ) {
       console.log(homeResponse.data);
       console.log(response.data);
     }
-
-    const otherFeaturedPosts = homeResponse.data.otherFeaturedPosts && homeResponse.data.otherFeaturedPosts.length > 1 ? (
-      homeResponse.data.otherFeaturedPosts.slice(0, 2)
-    ) : homeResponse.data.otherFeaturedPosts;
+    const latestPosts = response.data.slice(0, 4);
 
     return {
       latestEpisodes: homeResponse.data.latestEpisodes,
-      featuredArticle: homeResponse.data.featuredArticle,
+      featuredArticle: latestPosts[0],
       homeSubtitle: homeResponse.data.subtitle,
-      otherFeaturedPosts,
+      otherFeaturedPosts: latestPosts.slice(1, 4),
       posts: response.data,
       loading: false,
     };
