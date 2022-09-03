@@ -22,6 +22,7 @@ export const getState = async () => {
         }
       } else {
         parsedPost.featuredImage = {
+          id: 0,
           formats: {},
           url: ''
         };
