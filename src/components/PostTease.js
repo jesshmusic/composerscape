@@ -8,13 +8,13 @@ import moment from 'moment';
 import styles from './PostTease.module.scss';
 import { PostType } from '../utilities/types';
 
-const PostTeaseSmall = ( { post, feaaturedImageURL } ) => (
+const PostTeaseSmall = ( { post, featuredImageURL } ) => (
   <ListGroupItem className={ styles.postTease }>
     <Link to={ `/posts/${ post.id }` } className={ styles.link }>
       { post.featuredImage && post.featuredImage.formats ? (
         <div className={ styles.imageContainer }>
           <Image
-            src={ feaaturedImageURL }
+            src={ featuredImageURL }
             alt={ post.featuredImage.alt }/>
         </div>
       ) : null }
@@ -29,8 +29,9 @@ const PostTeaseSmall = ( { post, feaaturedImageURL } ) => (
   </ListGroupItem>
 );
 
-const PostTeaseFeaturedLarge = ( { post, feaaturedImageURL } ) => (
-  <div className={`${styles.featuredPost} ${styles.large}`} style={{backgroundImage: `url("${feaaturedImageURL}")`}}>
+const PostTeaseFeaturedLarge = ( { post, featuredImageURL } ) => (
+  <div className={ `${ styles.featuredPost } ${ styles.large }` }
+       style={ { backgroundImage: `url("${ featuredImageURL }")` } }>
     <div className={ styles.content }>
       <div className={ styles.overline }>Featured Article</div>
       <Link to={ `/posts/${ post.id }` } className={ styles.link }>
@@ -41,8 +42,9 @@ const PostTeaseFeaturedLarge = ( { post, feaaturedImageURL } ) => (
   </div>
 )
 
-const PostTeaseFeaturedSmall = ( { post, feaaturedImageURL } ) => (
-  <div className={`${styles.featuredPost} ${styles.small}`} style={{backgroundImage: `url("${feaaturedImageURL}")`}}>
+const PostTeaseFeaturedSmall = ( { post, featuredImageURL } ) => (
+  <div className={ `${ styles.featuredPost } ${ styles.small }` }
+       style={ { backgroundImage: `url("${ featuredImageURL }")` } }>
     <div className={ styles.content }>
       <Link to={ `/posts/${ post.id }` } className={ styles.link }>
         { post.title }
@@ -56,11 +58,11 @@ const PostTease = ( { post, featured, subFeatured } ) => {
   const featuredImageURLSmall = post.featuredImage.formats.small ? post.featuredImage.formats.small.url : post.featuredImage.url
   const featuredImageURLLarge = post.featuredImage.formats.large ? post.featuredImage.formats.large.url : post.featuredImage.url
   if ( featured ) {
-    return <PostTeaseFeaturedLarge post={ post } feaaturedImageURL={featuredImageURLLarge}/>;
-  } else if (subFeatured) {
-    return <PostTeaseFeaturedSmall post={ post } feaaturedImageURL={featuredImageURLSmall}/>;
+    return <PostTeaseFeaturedLarge post={ post } featuredImageURL={ featuredImageURLLarge }/>;
+  } else if ( subFeatured ) {
+    return <PostTeaseFeaturedSmall post={ post } featuredImageURL={ featuredImageURLSmall }/>;
   }
-  return <PostTeaseSmall post={ post } feaaturedImageURL={featuredImageURLSmall}/>;
+  return <PostTeaseSmall post={ post } featuredImageURL={ featuredImageURLSmall }/>;
 }
 
 PostTease.propTypes = {

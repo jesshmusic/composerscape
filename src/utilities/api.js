@@ -4,41 +4,39 @@ export const API_URL = process.env.NODE_ENV === 'development' ? 'http://localhos
 
 export const getState = async () => {
   try {
-    const homeResponse = await axios.get(`${API_URL}/api/composers-cape-home?[populate]=*`);
-    const response = await axios.get(`${API_URL}/api/posts?sort=id:desc&[populate]=*`);
-    if ( process.env.NODE_ENV === 'development' ) {
-      console.log(homeResponse.data.data);
-      console.log(response.data.data);
-    }
-    const allPosts = response.data.data.map(rawPost => {
+    const homeResponse = await axios.get( `${ API_URL }/api/composers-cape-home?[populate]=*` );
+    const response = await axios.get( `${ API_URL }/api/posts?sort=id:desc&[populate]=*` );
+
+    const allPosts = response.data.data.map( rawPost => {
       let parsedPost = {
         id: rawPost.id,
         ...rawPost.attributes
       }
-      if (rawPost.featuredImage) {
+      if ( rawPost.attributes.featuredImage && rawPost.attributes.featuredImage.data ) {
+        console.log( rawPost.attributes.featuredImage );
         parsedPost.featuredImage = {
-          id: rawPost.featuredImage.id,
-          ...rawPost.featuredImage,
+          id: rawPost.attributes.featuredImage.data.id,
+          ...rawPost.attributes.featuredImage.data.attributes,
         }
       } else {
         parsedPost.featuredImage = {
           id: 0,
           formats: {},
-          url: ''
+          url: 'https://composerscape.s3.us-east-2.amazonaws.com/ComposersCAPELogo.jpg'
         };
       }
       return parsedPost;
-    });
+    } );
 
     return {
       latestEpisodes: homeResponse.data.data.attributes.latestEpisodes,
       featuredArticle: allPosts[0],
       homeSubtitle: homeResponse.data.data.attributes.subtitle,
-      otherFeaturedPosts: allPosts.slice(1, 4),
+      otherFeaturedPosts: allPosts.slice( 1, 4 ),
       posts: allPosts,
       loading: false,
     };
-  } catch(error) {
+  } catch ( error ) {
     return {
       error,
       loading: false,
